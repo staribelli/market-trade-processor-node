@@ -13,7 +13,7 @@ console.log('Node app is running on port '+port);
 io.on('connection', function (socket) {
 
     console.log("new client connected");
-    var redisClient = redis.createClient('pub-redis-13246.us-east-1-3.6.ec2.redislabs.com', 13246);
+    var redisClient = redis.createClient(13246, 'pub-redis-13246.us-east-1-3.6.ec2.redislabs.com');
     redisClient.auth('3OX4CdGnAYKStTEZ', function (err) { if (err) throw err; });
     redisClient.subscribe('message');
 
