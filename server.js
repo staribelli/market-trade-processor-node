@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
     redisClient.auth('3OX4CdGnAYKStTEZ', function (err) { if (err) throw err; });
     redisClient.subscribe('message');
 
-    redisClient.on("monthly_rate", function(channel, message) {
+    redisClient.on("message", function(channel, message) {
         console.log("mew message in queue "+ message + "channel");
         socket.emit(channel, message);
     });
